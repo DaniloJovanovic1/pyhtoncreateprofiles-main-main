@@ -16,30 +16,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checka ut repot
       - uses: actions/checkout@v3
 
-      
-      - name: Install pytest
+      - name: Install Python packages
         run: pip install pytest
 
-      
-      - name: Run unit tests
+      - name: Generate CSV
+        run: python generate.py
+
+      - name: Convert CSV to JSON
+        run: python csvtojson.py
+
+      - name: Run all tests
         run: pytest
 
-      
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      
-      - name: Copy to dist
+      - name: Copy files to dist
         run: |
           mkdir dist
           cp web/index.html dist/index.html
           cp web/data.json dist/data.json
           cp web/script.js dist/script.js
 
-      
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
