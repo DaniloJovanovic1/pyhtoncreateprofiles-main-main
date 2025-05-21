@@ -9,11 +9,11 @@ class TestControl(unittest.TestCase):
         # ASSERT → går alltid igenom
         self.assertTrue(True)
 
-    def test_always_fails(self):
+    #def test_always_fails(self):
         # ARRANGE → inga data behövs
         # ACT → inga beräkningar
         # ASSERT → detta ska faila (kan kommenteras bort efter test)
-        self.assertTrue(False)
+       # self.assertTrue(False)
 
 class TestCSV(unittest.TestCase):
     def test_csv_should_have_12_columns(self):
