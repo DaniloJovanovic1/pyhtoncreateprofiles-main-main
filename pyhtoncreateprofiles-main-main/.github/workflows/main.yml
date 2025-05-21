@@ -16,20 +16,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      
       - name: Install Python packages
         run: pip install pytest
 
-      - name: Generate CSV
+      
+      - name: Generate CSV file
         run: python generate.py
 
+      
       - name: Convert CSV to JSON
         run: python csvtojson.py
 
+      
       - name: Run all tests
         run: pytest
 
+      
       - name: Copy files to dist
         run: |
           mkdir dist
@@ -37,6 +44,7 @@ jobs:
           cp web/data.json dist/data.json
           cp web/script.js dist/script.js
 
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
