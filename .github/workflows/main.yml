@@ -22,7 +22,10 @@ jobs:
 
       
       - name: Install Python packages
-        run: pip install pytest
+        run: |
+          pip install pytest
+          pip install faker
+
 
       
       - name: Generate CSV file
