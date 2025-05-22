@@ -23,7 +23,7 @@ jobs:
       
       - name: Install Python packages
         run: |
-        
+
           pip install faker
 
 
@@ -36,8 +36,9 @@ jobs:
         run: python csvtojson.py
 
       
-      - name: Run all tests with unittest
-        run: python -m unittest discover -s . -p "test_*.py"
+      - name: Run all tests with unittest (verbose)
+        run: python -m unittest discover -s . -p "test_*.py" -v
+
 
       
       - name: Copy files to dist
